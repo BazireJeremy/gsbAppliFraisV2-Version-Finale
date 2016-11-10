@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 
 if(!isset($_REQUEST['action'])){
@@ -13,7 +13,7 @@ switch($action){
 			$login = $_REQUEST['login'];
 			$mdp =  $_REQUEST['mdp'];
 			$type = $_REQUEST['type'];
-			$pdo->ajouterVisiteur($nom, $prenom, $login, $mdp, $type);
+			$pdo->ajouterVisiteur($nom, $prenom, md5($login), $mdp, $type);
 			include('vues/v_redirection.php'); 
 		
 			
@@ -31,7 +31,7 @@ switch($action){
 	case 'valideConnexion':{
 		$login = $_REQUEST['login'];
 		$mdp = $_REQUEST ['mdp'];
-		$visiteur = $pdo->getInfosVisiteur($login,$mdp);
+		$visiteur = $pdo->getInfosVisiteur($login,md5($mdp));
 		if(!is_array( $visiteur)){
 			ajouterErreur("Login ou mot de passe incorrect");
 			include("vues/v_erreurs.php");
