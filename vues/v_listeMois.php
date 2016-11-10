@@ -27,6 +27,7 @@
 								   
 								   ?>    
 					</select>
+					<a href="javascript:window.print()">Imprimer cette page</a>
 					<div class="form-horizontal">
 						<input class="form-control" id="ok" type="submit" value="Valider" />
 						<input class="form-control" id="annuler" type="reset" value="Effacer"/>
